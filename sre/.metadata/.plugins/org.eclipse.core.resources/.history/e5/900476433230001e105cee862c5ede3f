@@ -1,0 +1,20 @@
+package com.tcs.data;
+
+public class SampleData1 {
+public void messagesending() {
+	System.out.println("Message Sending");
+}
+public void audiosending() {
+	System.out.println("Audio Sending");
+}
+public void imagesending() {
+	System.out.println("Image Sending");
+}
+public static void main(String[] args) {
+	SampleData1 sampleData1 = new SampleData1();
+    sampleData1.messagesending();
+    sampleData1.audiosending();
+    sampleData1.imagesending();
+
+}
+}

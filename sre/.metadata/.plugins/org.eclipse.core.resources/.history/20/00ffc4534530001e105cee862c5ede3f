@@ -1,0 +1,19 @@
+package org.lang;
+
+public class LanguageInfo {
+public void tamilLanguage() {
+	System.out.println("Tamil language");	
+}
+public void englishLanguage() {
+	System.out.println("Englisg Language");
+}
+public void hindhiLanguage() {
+	System.out.println("Hindhi Language");
+}
+public static void main(String[] args) {
+	LanguageInfo languageInfo = new LanguageInfo();
+	languageInfo.tamilLanguage();
+	languageInfo.englishLanguage();
+	languageInfo.hindhiLanguage();
+}
+}

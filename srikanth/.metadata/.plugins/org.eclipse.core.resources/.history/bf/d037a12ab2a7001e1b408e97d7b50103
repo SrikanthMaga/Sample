@@ -1,0 +1,39 @@
+package org.dat;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Data_Provider {
+	public WebDriver driver = null;
+	@BeforeClass
+	public  void browser() {
+		driver =new ChromeDriver();
+		driver.manage().window().maximize()	;
+		driver.get("https://adactinhotelapp.com/");
+	}
+	@Test (dataProvider = "testData")
+	public void testData(String a, String b) {
+		
+		try {
+			driver.findElement(By.id("username")).sendKeys(a);
+			driver.findElement(By.id("password")).sendKeys(b);
+			driver.findElement(By.id("username")).clear();
+			driver.findElement(By.id("password")).clear();
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	@DataProvider (name = "testData")
+	public Object[][]data_pro(){
+		return new Object[][] {{"srikanth", "12345"}, {"sri","123"}};
+	}
+	
+}

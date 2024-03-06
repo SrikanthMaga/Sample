@@ -1,0 +1,43 @@
+package org.dat;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class Xl_DataReader {
+	public WebDriver driver = null;
+	@BeforeClass
+	public  void browser() {
+		driver =new ChromeDriver();
+		driver.manage().window().maximize()	;
+		driver.get("https://adactinhotelapp.com/");
+	}
+	@Test (dataProvider = "testData")
+	public void testData(String a, String b) {
+		
+		try {
+			driver.findElement(By.id("username")).sendKeys(a);
+			driver.findElement(By.id("password")).sendKeys(b);
+			Thread.sleep(5000);
+			driver.findElement(By.id("username")).clear();
+			driver.findElement(By.id("password")).clear();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	@DataProvider (name = "testData")
+	public Object[][]data_pro(){
+		String username = Xl_Data.ReradData(0, 0);
+		String password = Xl_Data.ReradData(0, 1);
+		String username1= Xl_Data.ReradData(1, 0);
+		String password1 = Xl_Data.ReradData(1, 1);
+		return new Object[][] {{"username", "password"}, {"username1", "password1"}};
+	}
+	
+}
+}

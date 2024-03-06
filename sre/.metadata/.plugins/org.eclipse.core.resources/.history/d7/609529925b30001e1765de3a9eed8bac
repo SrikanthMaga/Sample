@@ -1,0 +1,22 @@
+package org.project;
+
+import org.client.Client;
+import org.company.Company;
+import org.emp.Employee;
+
+public class Project {
+public void projectName() {
+	System.out.println("Project Name");
+}
+public static void main(String[] args) {
+	Project project = new Project();
+	project.projectName();
+	Client client = new Client();
+	client.clientName();
+	Company company = new Company();
+	company.companyName();
+	Employee employee = new Employee();
+	employee.empName();
+
+}
+}
